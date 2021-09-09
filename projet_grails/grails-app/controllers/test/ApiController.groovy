@@ -10,55 +10,23 @@ class ApiController {
     SaleAdService saleAdService
     def index() { }
 
-    def salead(){
-
-        switch(request.getMethod())
-        {
-            case "GET":
-                if (!params.id) {
-                   return response.status = 400
-               }
-                def annonceInstance= SaleAd.get(params.id)
-                if (!annonceInstance)
-                    return response.status= 404
-                response.withFormat {
-                     json { render annonceInstance as JSON }
+    def users() {
+        switch (request.getMethod()) {
+            case "GET" :
+                def list = backService.listUser()
+                withFormat {
+                    json { render list as JSON }
+                    xml { render list as XML}
                 }
-
-            case "PUT":
-                if (!params.id) {
-                    return response.status = 400
-                }
-                def annonceInstance= SaleAd.get(params.id)
-                if (!annonceInstance)
-                    return response.status= 404
-                def ac = request.JSON
-
-                if (!ac.title|| !ac.descLong||!ac.descShort)
-                    return response.status = 400
-
-                annonceInstance.properties=ac
-                annonceInstance.save(flush:true)
-                return response.status=200
                 break
 
-            case "DELETE":
-                if (!params.id) {
-                    return response.status = 400
-                }
-                def annonceInstance= SaleAd.get(params.id)
-                if (!annonceInstance)
-                    return response.status= 404
-                annonceInstance.delete(flush: true)
-                return response.status= 200
-                break
             default:
                 return response.status= 405
                 break
-
         }
-        return response.status= 406
- }
+    }
+
+
 
     def salesad(){
         switch(request.getMethod()) {
@@ -77,8 +45,7 @@ class ApiController {
                 println(request.JSON)
 
 
-                //def created =  new SaleAd(title:request.JSON.title,descShort:request.JSON.descShort,descLong:request.JSON.descLong,price:request.JSON.price).save()
-                println request.JSON
+                 println request.JSON
                 def created = backService.createSalesAd(request.JSON,null, null)
                 println created
                 if(created)

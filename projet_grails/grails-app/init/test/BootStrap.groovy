@@ -8,11 +8,11 @@ class BootStrap {
 
     def init = { servletContext ->
         def adminRole = new Role(authority: "ROLE_ADMIN").save()
-        def AdminInstance = new User(username: "admin", password: "admin").save()
+        def AdminInstance = new User(username: "nassim_admin", password: "admin").save()
         UserRole.create(AdminInstance, adminRole, true)
 
         def modRole = new Role(authority: "ROLE_MOD").save()
-        def modInstance = new User(username: "modo", password: "modo").save()
+        def modInstance = new User(username: "user_modo", password: "modo").save()
         UserRole.create(modInstance, modRole, true)
 
         def userRole = new Role(authority: "ROLE_ADMIN").save()
@@ -20,11 +20,11 @@ class BootStrap {
         UserRole.create(userInstance, userRole, true)
 
 
-        (1..20).each { Integer it ->
-            new SaleAd(title: "title " + it,
-                    descShort: "Description courte",
-                    descLong: "Description longue",
-                    price: it)
+        (1..6).each { Integer it ->
+            new SaleAd(title: "article " + it,
+                    descShort: "c'est un article",
+                    descLong: "détail de l'article",
+                    price: it * 12)
                     .addToIllustrations(new Illustration(filename: "filename.png"))
                     .save()
         }

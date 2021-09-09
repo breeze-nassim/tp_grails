@@ -1,9 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Zakaria
-  Date: 17/09/2020
-  Time: 21:53
---%>
+
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
@@ -17,26 +12,24 @@
     <div class="container">
         <div class="row justify-content-md-center" >
             <div class="col col-lg-2">
-                <table class="table">
+                <table style="margin-top: 30px; margin-left: 10%; width: 70%" class="table">
                     <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Desc</th>
-                        <th scope="col">Price</th>
+                    <tr style="color: #9fcdff; background-color: firebrick">
+                        <th scope="col">Titre</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Prix</th>
                         <th scope="col">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
                     <g:each in="${listSalesAd}">
-                        <tr>
-                            <th scope="row">${it.id}</th>
+                        <tr style="color: #1b1e21; background-color: navajowhite">
                             <td>${it.title}</td>
                             <td>${it.descShort}</td>
-                            <td>${it.price}</td>
+                            <td>${it.price} €</td>
                             <td>
-                                <g:link controller="back" action="editAd" id="${it.id}">Edit ad</g:link>
-                                <g:link controller="back" action="deleteAd" id="${it.id}">Delete ad</g:link>
+                                <g:link controller="back" class="btn btn-danger my-2 my-lg-0" action="editAd" id="${it.id}">modifier article</g:link>
+                                <g:link controller="back" class="btn btn-danger my-2 my-lg-0" action="deleteAd" onclick="return confirm('voulez-vous supprimez cette annonce?!')" id="${it.id}">supprimer article</g:link>
                             </td>
                         </tr>
                     </g:each>

@@ -11,19 +11,28 @@
 <body>
 
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand mb-0 h1" href="/">Le coin coin </a>
+        <a  style="color: #1b1e21"><g:username /></a>
+        <a  class="navbar-brand mb-0 h1" href="/" style="color: #1b1e21">consulter les articles</a>
 
         <ul class="navbar-nav  navbar-expand-sm">
-
+            <li class="nav-item mr-3">
+                <a style="color: #1b1e21" class="nav-link" href="/back/listUser">liste des utilisateurs</a>
+            </li>
 
             <li class="nav-item mr-3">
-                <a class="nav-link" href="/back/salesAd">List Sales Ad</a>
+                <a style="color: #721c24" class="nav-link" href="/back/salesAd">liste des articles</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/back/createSalesAd">Add Sale Ad</a>
-            </li>
-        </ul>
 
+        </ul>
+        <g:if test="${g.isLoggedIn() == 'true'}">
+            <div class="my-2 my-sm-0">
+
+                <a href="/logout" class="btn btn-danger" >se déconnecter</a>
+            </div>
+        </g:if>
+        <g:else>
+            <a href="/login" class="btn btn-outline-success my-2 my-sm-0" >se connecter</a>
+        </g:else>
 
     </nav>
 

@@ -7,24 +7,17 @@
 <body>
     <div class="container">
         <g:each status="i" var="it" in="${ listSalesAd }">
-            <g:if test="${ i % 3 == 0 }">
-                <g:if test="${ i != 0 }">
-                    </div>
-                </g:if>
-                <div class="card-deck mb-3">
-            </g:if>
-                <div class="card">
-                    <img src="http://localhost:8080/assets/salesAd/filename.png" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">${ it.title } </h5>
-                        <p class="card-text">${ it.descShort } </p>
-                        <p class="card-text">Price : <b>${ it.price }$</b></p>
-                    </div>
-                </div>
 
-            <g:if test="${ i == ( listSalesAd.size() - 1 ) }">
-                </div>
-            </g:if>
+
+                    <img src="http://localhost:8080/assets/salesAd/iniesta.jpg" >
+                    <div class="card-body">
+                        <h4 style="color: #005cbf" class="card-title">${ it.title } </h4>
+                        <p style="color: #005cbf" class="card-text">Description : ${ it.descShort } </p>
+                        <p style="color: #005cbf" class="card-text">prix : <b>${ it.price } €</b></p>
+                    </div>
+
+
+
         </g:each>
     </div>
 </body>
