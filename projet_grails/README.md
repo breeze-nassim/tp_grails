@@ -1,4 +1,5 @@
 lors du lancement de l'application 3 profiles sont créés :
+
             - un admin {username: nassim_admin; mdp: admin}, il fait les taches suivantes:
             
                      * visualiser les articles.
@@ -17,7 +18,11 @@ lors du lancement de l'application 3 profiles sont créés :
               
                      * visualiser les articles.
                      
+                     
+                     
 lors du lancement de l'application 6 articles sont créés, avec une image, un prix et une description.
+
+
 
 les APIs créées sont les suivantes :
       
