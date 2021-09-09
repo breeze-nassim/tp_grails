@@ -14,7 +14,7 @@ lors du lancement de l'application 3 profiles sont créés :
                      * modifier un article.
                      * supprimer un article.
                      
-              - un utilisateur, il ne se connecte pas, et il fait les taches suivantes:
+              - un utilisateur, {username: user; mdp: user}, et il fait les taches suivantes:
               
                      * visualiser les articles.
                      
