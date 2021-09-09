@@ -14,37 +14,6 @@ class SaleAdController {
         respond saleAdService.list(params), model:[saleAdCount: saleAdService.count()]
     }
 
-    def show(Long id) {
-        respond saleAdService.get(id)
-    }
-
-
-
-    def save(SaleAd saleAd) {
-        if (saleAd == null) {
-            notFound()
-            return
-        }
-
-        try {
-            saleAdService.save(saleAd)
-        } catch (ValidationException e) {
-            respond saleAd.errors, view:'create'
-            return
-        }
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'saleAd.label', default: 'SaleAd'), saleAd.id])
-                redirect saleAd
-            }
-            '*' { respond saleAd, [status: CREATED] }
-        }
-    }
-
-    def edit(Long id) {
-        respond saleAdService.get(id)
-    }
 
     def update(SaleAd saleAd) {
         if (saleAd == null) {
