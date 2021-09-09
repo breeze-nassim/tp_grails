@@ -15,7 +15,7 @@ class BackController {
 
 
 
-    @Secured("ROLE_ADMIN")
+    @Secured(["ROLE_ADMIN", "ROLE_MOD"])
     def listUser() {
         [listUser: backService.listUser(),userRo:UserRole.list()]
     }
@@ -47,7 +47,7 @@ class BackController {
         redirect(action: "salesAd")
     }
 
-    @Secured(["ROLE_ADMIN", "ROLE_MOD"])
+    @Secured(["ROLE_ADMIN"])
     def editAd(){
         def id = params.id
         if(id) {
@@ -57,7 +57,7 @@ class BackController {
             }
         }
     }
-    @Secured(["ROLE_ADMIN", "ROLE_MOD"])
+    @Secured(["ROLE_ADMIN"])
     def editAdMethod() {
         def id = params.id
         def ad = SaleAd.get(id)
